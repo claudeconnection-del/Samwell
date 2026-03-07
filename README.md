@@ -12,4 +12,4 @@ A self-hosted AI stack named for Sam Weller, the resourceful servant from Dicken
 ## Status
 
 Phase 0: Scaffold - DONE
-Phase 1: Core Loop - (pending)
+Phase 1: Core Loop - (pending)# sturdy-bassoon

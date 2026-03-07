@@ -1,0 +1,108 @@
+samwell-librechat  | 
+samwell-librechat  | > LibreChat@v0.8.3-rc2 backend
+samwell-librechat  | > cross-env NODE_ENV=production node api/server/index.js
+samwell-librechat  | 
+samwell-librechat  | 2026-03-07 19:28:31 [32minfo[39m: [32mMongo Connection options[39m
+samwell-librechat  | 2026-03-07 19:28:31 [32minfo[39m: [32m{[39m
+samwell-librechat  | [32m  "bufferCommands": false[39m
+samwell-librechat  | [32m}[39m
+samwell-librechat  | 2026-03-07 19:28:34 [32minfo[39m: [32mConnected to MongoDB[39m
+samwell-librechat  | 2026-03-07 19:28:35 [32minfo[39m: [32m[getAppConfig] App configuration not initialized. Initializing AppService...[39m
+samwell-librechat  | 2026-03-07 19:28:35 [32minfo[39m: [32mCustom config file loaded:[39m
+samwell-librechat  | 2026-03-07 19:28:35 [32minfo[39m: [32m{[39m
+samwell-librechat  | [32m  "version": "1.2.1",[39m
+samwell-librechat  | [32m  "cache": true,[39m
+samwell-librechat  | [32m  "endpoints": {[39m
+samwell-librechat  | [32m    "custom": [[39m
+samwell-librechat  | [32m      {[39m
+samwell-librechat  | [32m        "name": "Ollama",[39m
+samwell-librechat  | [32m        "apiKey": "ollama",[39m
+samwell-librechat  | [32m        "baseURL": "http://host.docker.internal:11434/v1/",[39m
+samwell-librechat  | [32m        "models": {[39m
+samwell-librechat  | [32m          "default": [[39m
+samwell-librechat  | [32m            "llama3.2:3b"[39m
+samwell-librechat  | [32m          ],[39m
+samwell-librechat  | [32m          "fetch": true[39m
+samwell-librechat  | [32m        },[39m
+samwell-librechat  | [32m        "titleConvo": true,[39m
+samwell-librechat  | [32m        "titleModel": "current_model",[39m
+samwell-librechat  | [32m        "summarize": false,[39m
+samwell-librechat  | [32m        "modelDisplayLabel": "Ollama"[39m
+samwell-librechat  | [32m      }[39m
+samwell-librechat  | [32m    ][39m
+samwell-librechat  | [32m  }[39m
+samwell-librechat  | [32m}[39m
+samwell-librechat  | 2026-03-07 19:28:35 [32minfo[39m: [32m[39m
+samwell-librechat  | [32mOutdated Config version: 1.2.1[39m
+samwell-librechat  | [32mLatest version: 1.3.5[39m
+samwell-librechat  | 
+samwell-librechat  | [32m      Check out the Config changelogs for the latest options and features added.[39m
+samwell-librechat  | 
+samwell-librechat  | [32m      https://www.librechat.ai/changelog[39m
+samwell-librechat  | 
+samwell-librechat  | [32m[39m
+samwell-librechat  | 2026-03-07 19:28:35 [33m[3mwarn[23m[39m: [33m[3mRAG API is either not running or not reachable at undefined, you may experience errors with file uploads.[23m[39m
+samwell-librechat  | Social logins are disabled. Set ALLOW_SOCIAL_LOGIN=true to enable them.
+samwell-librechat  | 2026-03-07 19:28:35 [32minfo[39m: [32mServer listening on all interfaces at port 3080. Use http://localhost:3080 to access it[39m
+samwell-librechat  | 2026-03-07 19:28:35 [32minfo[39m: [32m[MCPServersRegistry] Creating new instance[39m
+samwell-librechat  | 2026-03-07 19:28:35 [32minfo[39m: [32mOAuth reconnect manager initialized successfully.[39m
+samwell-librechat  | 2026-03-07 19:28:35 [32minfo[39m: [32m[StreamServices] Created in-memory stream services[39m
+samwell-librechat  | 2026-03-07 19:28:35 [32minfo[39m: [32m[GenerationJobManager] Configured with in-memory stores[39m
+samwell-librechat  | 2026-03-07 19:32:18 [31merror[39m: [31mPassport Local Strategy - User Not Found[39m
+samwell-librechat  | 2026-03-07 19:32:18 [31merror[39m: [31m[Login] [Login failed] [Username: abchomey@pm.me] [Request-IP: 172.18.0.1][39m
+samwell-librechat  | 2026-03-07 19:34:48 [32minfo[39m: [32mCleaning up FlowStateManager intervals...[39m
+samwell-librechat  | 
+samwell-librechat  | > LibreChat@v0.8.3-rc2 backend
+samwell-librechat  | > cross-env NODE_ENV=production node api/server/index.js
+samwell-librechat  | 
+samwell-librechat  | 2026-03-07 19:34:50 [32minfo[39m: [32mMongo Connection options[39m
+samwell-librechat  | 2026-03-07 19:34:50 [32minfo[39m: [32m{[39m
+samwell-librechat  | [32m  "bufferCommands": false[39m
+samwell-librechat  | [32m}[39m
+samwell-librechat  | 2026-03-07 19:34:50 [32minfo[39m: [32mConnected to MongoDB[39m
+samwell-librechat  | 2026-03-07 19:34:50 [32minfo[39m: [32m[getAppConfig] App configuration not initialized. Initializing AppService...[39m
+samwell-librechat  | 2026-03-07 19:34:50 [32minfo[39m: [32mCustom config file loaded:[39m
+samwell-librechat  | 2026-03-07 19:34:50 [32minfo[39m: [32m{[39m
+samwell-librechat  | [32m  "version": "1.2.1",[39m
+samwell-librechat  | [32m  "cache": true,[39m
+samwell-librechat  | [32m  "endpoints": {[39m
+samwell-librechat  | [32m    "custom": [[39m
+samwell-librechat  | [32m      {[39m
+samwell-librechat  | [32m        "name": "Ollama",[39m
+samwell-librechat  | [32m        "apiKey": "ollama",[39m
+samwell-librechat  | [32m        "baseURL": "http://host.docker.internal:11434/v1/",[39m
+samwell-librechat  | [32m        "models": {[39m
+samwell-librechat  | [32m          "default": [[39m
+samwell-librechat  | [32m            "llama3.2:3b"[39m
+samwell-librechat  | [32m          ],[39m
+samwell-librechat  | [32m          "fetch": true[39m
+samwell-librechat  | [32m        },[39m
+samwell-librechat  | [32m        "titleConvo": true,[39m
+samwell-librechat  | [32m        "titleModel": "current_model",[39m
+samwell-librechat  | [32m        "summarize": false,[39m
+samwell-librechat  | [32m        "modelDisplayLabel": "Ollama"[39m
+samwell-librechat  | [32m      }[39m
+samwell-librechat  | [32m    ][39m
+samwell-librechat  | [32m  }[39m
+samwell-librechat  | [32m}[39m
+samwell-librechat  | 2026-03-07 19:34:50 [32minfo[39m: [32m[39m
+samwell-librechat  | [32mOutdated Config version: 1.2.1[39m
+samwell-librechat  | [32mLatest version: 1.3.5[39m
+samwell-librechat  | 
+samwell-librechat  | [32m      Check out the Config changelogs for the latest options and features added.[39m
+samwell-librechat  | 
+samwell-librechat  | [32m      https://www.librechat.ai/changelog[39m
+samwell-librechat  | 
+samwell-librechat  | [32m[39m
+samwell-librechat  | 2026-03-07 19:34:50 [33m[3mwarn[23m[39m: [33m[3mRAG API is either not running or not reachable at undefined, you may experience errors with file uploads.[23m[39m
+samwell-librechat  | Social logins are disabled. Set ALLOW_SOCIAL_LOGIN=true to enable them.
+samwell-librechat  | 2026-03-07 19:34:50 [32minfo[39m: [32mServer listening on all interfaces at port 3080. Use http://localhost:3080 to access it[39m
+samwell-librechat  | 2026-03-07 19:34:50 [32minfo[39m: [32m[MCPServersRegistry] Creating new instance[39m
+samwell-librechat  | 2026-03-07 19:34:50 [32minfo[39m: [32mOAuth reconnect manager initialized successfully.[39m
+samwell-librechat  | 2026-03-07 19:34:50 [32minfo[39m: [32m[StreamServices] Created in-memory stream services[39m
+samwell-librechat  | 2026-03-07 19:34:50 [32minfo[39m: [32m[GenerationJobManager] Configured with in-memory stores[39m
+samwell-librechat  | 2026-03-07 19:35:04 [32minfo[39m: [32mCleaning up FlowStateManager intervals...[39m
+samwell-librechat  | 
+samwell-librechat  | > LibreChat@v0.8.3-rc2 backend
+samwell-librechat  | > cross-env NODE_ENV=production node api/server/index.js
+samwell-librechat  | 

@@ -1,0 +1,15 @@
+.env
+docker-compose.override.yml
+volumes/mongodb/
+volumes/meilisearch/
+volumes/qdrant/
+*.gguf
+Thumbs.db
+.DS_Store
+.vscode/
+*.swp
+*.swo
+node_modules/
+__pycache__/
+*.pyc
+.venv/

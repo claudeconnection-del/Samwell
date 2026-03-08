@@ -4,13 +4,11 @@ model_list:
       model: ollama/qwen3:8b
       api_base: http://host.docker.internal:11434
       apiKey: "ollama"
-    model_info:
   - model_name: qwen3:32b-q4_K_M
     litellm_params:
       model: ollama/qwen3:32b-q4_K_M
       api_base: http://host.docker.internal:11434
       apiKey: "ollama"
-    model_info:
 
 
 litellm_settings:

@@ -49,6 +49,30 @@ mcpServers:
     timeout: 30000
     initTimeout: 15000
 
+# Uncomment for macOS
+#code-sandbox:
+#    args:
+#      - run
+#      - -i
+#      - --rm
+#      - --user
+#      - root
+#      - -v
+#      - /var/run/docker.sock:/var/run/docker.sock
+#      - -e
+#      - SANDBOX_MEMORY_LIMIT
+#      - -e
+#      - SANDBOX_CPU_LIMIT
+#      - -e
+#      - SANDBOX_TIMEOUT
+#      - mcp/node-code-sandbox
+#      env:
+#            SANDBOX_MEMORY_LIMIT: "512m"
+#            SANDBOX_CPU_LIMIT: "0.75"
+#            SANDBOX_TIMEOUT: "15000"
+#            SANDBOX_IDLE_TIMEOUT: "300"
+#          timeout: 30000
+# Uncomment for Windows/WSL
   code-sandbox:
     command: docker
     args:

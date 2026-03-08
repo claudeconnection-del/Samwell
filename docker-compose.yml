@@ -10,8 +10,14 @@ services:
     ports:
       - "3080:3080"
     depends_on:
-      - mongodb
-      - meilisearch
+      mongodb:
+        condition: service_started
+      meilisearch:
+        condition: service_started
+      mcp-qdrant:
+        condition: service_healthy
+      mcp-postgres:
+        condition: service_healthy
     extra_hosts:
       - "host.docker.internal:host-gateway"
     environment:
@@ -83,6 +89,12 @@ services:
       postgres-db:
         condition: service_healthy
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import socket; s=socket.socket(); s.settimeout(2); s.connect(('localhost', 8000)); s.close()"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
 
   qdrant:
     image: qdrant/qdrant:latest
@@ -107,15 +119,13 @@ services:
       FASTMCP_SERVER_HOST: "0.0.0.0"
     ports:
       - "8002:8000"
-    depends_on:
-      - qdrant
     restart: unless-stopped
     healthcheck:
-      test: ["CMD", "python3", "-e", "import urllib.request; urllib.request.urlopen('https://localhost:8000/sse')"]
-      interval: 10s
+      test: ["CMD", "python3", "-c", "import socket; s=socket.socket(); s.settimeout(2); s.connect(('localhost', 8000)); s.close()"]
+      interval: 15s
       timeout: 5s
-      retries: 10
-      start_period: 60s
+      retries: 20
+      start_period: 90s
 
   redis:
     image: redis:7-alpine

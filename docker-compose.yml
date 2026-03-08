@@ -47,6 +47,48 @@ services:
       - meilisearch_data:/meili_data
     restart: unless-stopped
 
+  postgres-db:
+    image: postgres:16
+    container_name: samwell-postgres
+    networks:
+      default:
+        ipv4_address: 172.18.0.10
+    environment:
+      POSTGRES_USER: samwell
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: samwell_db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U samwell -d samwell_db"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  mcp-postgres:
+    image: crystaldba/postgres-mcp:latest
+    container_name: samwell-mcp-postgres
+    command: ["--transport=sse", "--access-mode=restricted"]
+    environment:
+      DATABASE_URI: "postgresql://samwell:${POSTGRES_PASSWORD}@172.18.0.10:5432/samwell_db"
+    extra_hosts:
+      - "postgres-db:172.18.0.10"
+    ports:
+      - "8001:8000"
+    depends_on:
+      postgres-db:
+        condition: service_healthy
+    restart: unless-stopped
+
+networks:
+  default:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.0.0/16
+
 volumes:
   meilisearch_data:
   mongodb_data:
+  postgres_data:

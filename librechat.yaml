@@ -115,3 +115,17 @@ endpoints:
       titleModel: "current_model"
       summarize: false
       modelDisplayLabel: "Ollama"
+
+    - name: "Ollama (Traced)"
+      apiKey: "${LITELLM_MASTER_KEY}"
+      baseURL: "http://litellm:4000/v1/"
+      requestTimeout: 300000
+      models:
+        default:
+          - qwen3:8b
+          - qwen3:32b-q4_K_M
+        fetch: false
+      titleConvo: true
+      titleModel: "current_model"
+      summarize: false
+      modelDisplayLabel: "Ollama (Traced)"

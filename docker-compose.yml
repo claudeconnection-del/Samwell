@@ -5,7 +5,7 @@ services:
       dockerfile: Dockerfile.api
     group_add:
       - "0"
-    # image: ghcr.io/danny-avila/librechat:latest
+    # image: ghcr.io/danny-avila/librechat:latest               commented out to swap image to build
     container_name: samwell-librechat
     ports:
       - "3080:3080"

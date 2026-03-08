@@ -125,6 +125,7 @@ mcpServers:
 endpoints:
   custom:
     - name: "Ollama"
+      maxContextTokens: 8192
       apiKey: "ollama"
       baseURL: "http://host.docker.internal:11434/v1/"
       requestTimeout: 300000
@@ -154,3 +155,10 @@ endpoints:
       titleModel: "current_model"
       summarize: false
       modelDisplayLabel: "Ollama (Traced)"
+
+interface:
+  endpointsMenu: true
+  modelSelect: true
+  parameters: true
+  sidePanel: true
+  presets: true

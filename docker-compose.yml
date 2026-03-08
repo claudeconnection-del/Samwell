@@ -29,6 +29,7 @@ services:
       - ./librechat.yaml:/app/librechat.yaml:ro
       - /var/run/docker.sock:/var/run/docker.sock
       - ./volumes/shared-data:/data
+      - uv_cache:/root/.cache/uv
     restart: unless-stopped
 
   mongodb:
@@ -81,6 +82,40 @@ services:
         condition: service_healthy
     restart: unless-stopped
 
+  qdrant:
+    image: qdrant/qdrant:latest
+    container_name: samwell-qdrant
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - qdrant_data:/qdrant/storage
+    restart: unless-stopped
+
+  mcp-qdrant:
+    build:
+      context: ./config/mcp/qdrant
+      args:
+        HF_TOKEN: ${HF_TOKEN}
+    container_name: samwell-mcp-qdrant
+    environment:
+      QDRANT_URL: "http://qdrant:6333"
+      COLLECTION_NAME: "samwell-memory"
+      FASTEMBED_CACHE_PATH: "/opt/fastembed_cache"
+      FASTMCP_SERVER_HOST: "0.0.0.0"
+    ports:
+      - "8002:8000"
+    depends_on:
+      - qdrant
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python3", "-e", "import urllib.request; urllib.request.urlopen('https://localhost:8000/sse')"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 60s
+
+
 networks:
   default:
     driver: bridge
@@ -92,3 +127,5 @@ volumes:
   meilisearch_data:
   mongodb_data:
   postgres_data:
+  qdrant_data:
+  uv_cache:

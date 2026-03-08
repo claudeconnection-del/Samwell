@@ -6,6 +6,7 @@ mcpSettings:
   allowedDomains:
     - "mcp-postgres"
     - "host.docker.internal"
+    - "mcp-qdrant"
 
 mcpServers:
   filesystem:
@@ -73,9 +74,16 @@ mcpServers:
       SANDBOX_MEMORY_LIMIT: "512m"
       SANDBOX_CPU_LIMIT: "0.75"
       SANDBOX_TIMEOUT: "15000"
+      SANDBOX_IDLE_TIMEOUT: "300"
       DOCKER_HOST: "tcp://host.docker.internal:2375"
       DOCKER_API_VERSION: "1.47"
     timeout: 30000
+
+  qdrant:
+    type: sse
+    url: "http://mcp-qdrant:8000/sse"
+    timeout: 60000
+    initTimeout: 30000
 
 endpoints:
   custom:

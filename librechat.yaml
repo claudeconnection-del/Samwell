@@ -85,6 +85,18 @@ mcpServers:
     timeout: 60000
     initTimeout: 30000
 
+  time:
+    command: docker
+    args:
+      - run
+      - -i
+      - --rm
+      - ghcr.io/astral-sh/uv:python3.12-bookworm-slim
+      - uvx
+      - mcp-server-time
+    timeout: 30000
+    initTimeout: 15000
+
 endpoints:
   custom:
     - name: "Ollama"

@@ -30,6 +30,23 @@ A self-hosted AI stack named for Sam Weller, the resourceful servant from Dicken
 7. Start the stack
 - `docker compose up -d`
 
+### Windows/WSL
+1. Install Docker Desktop with WSL2
+2. Install Ollama via Windows
+3. Clone repo and configure .env as above
+4. In librechat.yaml - uncomment the Windows/WSL version and comment out macOS-specific version
+5. Pull models as above
+6. Run `docker compose up -d`
+
+### Linux
+1. Install Docker
+- `sudo apt install docker.io`
+2. Install Ollama
+- `curl -L https://github.com/ollama/ollama/releases/download/v0.2.17/ollama-linux-amd64 && sudo mv ollama-linux-amd64 /usr/local/bin/ollama`
+3. Clone repo and configure .env
+4. In librechat.yaml - uncomment Linux version
+5. Pull models as above
+6. Run `docker compose up -d`
 
 ## Status
 

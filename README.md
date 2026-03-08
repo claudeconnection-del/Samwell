@@ -17,9 +17,9 @@ A self-hosted AI stack named for Sam Weller, the resourceful servant from Dicken
 2. Install Ollama natively
 `brew install ollama`
 3. Clone repo
-```git clone https://github.com/claudeconnection-del/Samwell.git
-cd Samwell
-cp .env.example .env```
+`git clone https://github.com/claudeconnection-del/Samwell.git`
+`cd Samwell`
+`cp .env.example .env`
 4. Fill in .env with keys
 5. in /Samwell/librechat.yaml - uncomment the macOS specific version and comment out the Windows/WSL version
 6. Pull models in Ollama

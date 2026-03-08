@@ -1,6 +1,11 @@
 services:
   api:
-    image: ghcr.io/danny-avila/librechat:latest
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    group_add:
+      - "0"
+    # image: ghcr.io/danny-avila/librechat:latest
     container_name: samwell-librechat
     ports:
       - "3080:3080"
@@ -19,17 +24,18 @@ services:
       - JWT_REFRESH_SECRET=${JWT_REFRESH_SECRET}
       - ALLOW_REGISTRATION=true
       - BRAVE_API_KEY=${BRAVE_API_KEY}
+      - GITHUB_PAT=${GITHUB_PAT}
     volumes:
-      - ./librechat.yaml:/app/librechat.yaml
-      - ./volumes/shared-data:/data
+      - ./librechat.yaml:/app/librechat.yaml:ro
       - /var/run/docker.sock:/var/run/docker.sock
+      - ./volumes/shared-data:/data
     restart: unless-stopped
 
   mongodb:
     image: mongo:7
     container_name: samwell-mongodb
     volumes:
-      - ./volumes/mongodb:/data/db
+      - mongodb_data:/data/db
     restart: unless-stopped
 
   meilisearch:
@@ -38,5 +44,9 @@ services:
     environment:
       - MEILI_MASTER_KEY=${MEILI_MASTER_KEY}
     volumes:
-      - ./volumes/meilisearch:/meili_data
+      - meilisearch_data:/meili_data
     restart: unless-stopped
+
+volumes:
+  meilisearch_data:
+  mongodb_data:

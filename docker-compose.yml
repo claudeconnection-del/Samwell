@@ -84,7 +84,7 @@ services:
     extra_hosts:
       - "postgres-db:172.18.0.10"
     ports:
-      - "8001:8000"
+      - "8079:8000"
     depends_on:
       postgres-db:
         condition: service_healthy
@@ -118,7 +118,7 @@ services:
       FASTEMBED_CACHE_PATH: "/opt/fastembed_cache"
       FASTMCP_SERVER_HOST: "0.0.0.0"
     ports:
-      - "8002:8000"
+      - "8080:8000"
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "python3", "-c", "import socket; s=socket.socket(); s.settimeout(2); s.connect(('localhost', 8000)); s.close()"]
@@ -172,7 +172,6 @@ services:
     depends_on:
       - langfuse-web
     restart: unless-stopped
-
 
 networks:
   default:

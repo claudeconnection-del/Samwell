@@ -7,6 +7,8 @@ mcpSettings:
     - "mcp-postgres"
     - "host.docker.internal"
     - "mcp-qdrant"
+    - "samwell-mcp-mslearn"
+    - "https://learn.microsoft.com"
 
 mcpServers:
   filesystem:
@@ -120,6 +122,10 @@ mcpServers:
       - mcp-server-time
     timeout: 30000
     initTimeout: 15000
+
+  mslearn:
+    type: streamable-http
+    url: https://learn.microsoft.com/api/mcp
 
 # swap default models order for more powerful machines
 endpoints:

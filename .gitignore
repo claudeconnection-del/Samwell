@@ -4,6 +4,7 @@ volumes/mongodb/
 volumes/meilisearch/
 volumes/qdrant/
 volumes/sandbox-output/
+volumes/shared-data/
 *.gguf
 Thumbs.db
 .DS_Store

@@ -116,6 +116,7 @@ services:
       QDRANT_URL: "http://qdrant:6333"
       COLLECTION_NAME: "samwell-memory"
       FASTEMBED_CACHE_PATH: "/opt/fastembed_cache"
+      FASTMCP_SERVER_TRANSPORT: "sse"
       FASTMCP_SERVER_HOST: "0.0.0.0"
     ports:
       - "8080:8000"

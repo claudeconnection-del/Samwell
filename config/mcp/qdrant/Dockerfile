@@ -2,8 +2,9 @@ FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim
 
 ENV FASTEMBED_CACHE_PATH=/cache
 ENV PYTHONUNBUFFERED=1
+ENV FASTMCP_SERVER_HOST=0.0.0.0
 
-RUN uv tool install mcp-server-qdrant
+RUN uv tool install mcp-server-qdrant==0.8.1
 
 ARG HF_TOKEN=""
 RUN HF_TOKEN="${HF_TOKEN}" \

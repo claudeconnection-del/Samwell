@@ -52,39 +52,16 @@ mcpServers:
     initTimeout: 15000
 
 # Uncomment for macOS
-#code-sandbox:
-#    args:
-#      - run
-#      - -i
-#      - --rm
-#      - --user
-#      - root
-#      - -v
-#      - /var/run/docker.sock:/var/run/docker.sock
-#      - -e
-#      - SANDBOX_MEMORY_LIMIT
-#      - -e
-#      - SANDBOX_CPU_LIMIT
-#      - -e
-#      - SANDBOX_TIMEOUT
-#      - mcp/node-code-sandbox
-#      env:
-#            SANDBOX_MEMORY_LIMIT: "512m"
-#            SANDBOX_CPU_LIMIT: "0.75"
-#            SANDBOX_TIMEOUT: "15000"
-#            SANDBOX_IDLE_TIMEOUT: "300"
-#          timeout: 30000
-# Uncomment for Windows/WSL
   code-sandbox:
-    command: docker
+    command: docker  
     args:
       - run
       - -i
       - --rm
       - --user
       - root
-      - --add-host
-      - host.docker.internal:host-gateway
+      - -v
+      - /var/run/docker.sock:/var/run/docker.sock
       - -e
       - SANDBOX_MEMORY_LIMIT
       - -e
@@ -92,18 +69,48 @@ mcpServers:
       - -e
       - SANDBOX_TIMEOUT
       - -e
-      - DOCKER_HOST
+      - SANDBOX_IDLE_TIMEOUT
       - -e
       - DOCKER_API_VERSION
       - mcp/node-code-sandbox
     env:
-      SANDBOX_MEMORY_LIMIT: "512m"
+      SANDBOX_MEMORY_LIMIT: "1024m"
       SANDBOX_CPU_LIMIT: "0.75"
       SANDBOX_TIMEOUT: "15000"
       SANDBOX_IDLE_TIMEOUT: "300"
-      DOCKER_HOST: "tcp://host.docker.internal:2375"
       DOCKER_API_VERSION: "1.47"
     timeout: 30000
+
+#  Uncomment for Windows/WSL
+#   code-sandbox:
+#     command: docker
+#     args:
+#       - run
+#       - -i
+#       - --rm
+#       - --user
+#       - root
+#       - --add-host
+#       - host.docker.internal:host-gateway
+#       - -e
+#       - SANDBOX_MEMORY_LIMIT
+#       - -e
+#       - SANDBOX_CPU_LIMIT
+#       - -e
+#       - SANDBOX_TIMEOUT
+#       - -e
+#       - DOCKER_HOST
+#       - -e
+#       - DOCKER_API_VERSION
+#       - mcp/node-code-sandbox
+#     env:
+#       SANDBOX_MEMORY_LIMIT: "512m"
+#       SANDBOX_CPU_LIMIT: "0.75"
+#       SANDBOX_TIMEOUT: "15000"
+#       SANDBOX_IDLE_TIMEOUT: "300"
+#       DOCKER_HOST: "tcp://host.docker.internal:2375"
+#       DOCKER_API_VERSION: "1.47"
+#     timeout: 30000
 
   qdrant:
     type: sse
@@ -140,8 +147,9 @@ endpoints:
           thinking: false
       models:
         default:
-          - "qwen3:8b"
           - "qwen3:32b-q4_K_M"
+          - "qwen3:8b"
+          - "llama3:70b"
         fetch: true
       titleConvo: false
       titleModel: "current_model"
@@ -156,6 +164,7 @@ endpoints:
         default:
           - qwen3:8b
           - qwen3:32b-q4_K_M
+          - llama
         fetch: false
       titleConvo: true
       titleModel: "current_model"

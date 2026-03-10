@@ -142,6 +142,11 @@ endpoints:
         default:
           - "qwen3:8b"
           - "qwen3:32b-q4_K_M"
+          - "qwen2.5-coder:14b"
+          - "qwen2.5-coder:7b"
+          - "mistral:7b"
+          - "qwen3.5:4b"
+          - "qwen3-coder-next:q4_K_M"
         fetch: true
       titleConvo: false
       titleModel: "current_model"

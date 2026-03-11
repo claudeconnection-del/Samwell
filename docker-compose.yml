@@ -173,6 +173,16 @@ services:
       - langfuse-web
     restart: unless-stopped
 
+  mcp-sandbox:
+    build:
+      context: ./config/mcp/sandbox
+    container_name: samwell-mcp-sandbox
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - "8004:8000"
+    restart: unless-stopped
+
 networks:
   default:
     driver: bridge

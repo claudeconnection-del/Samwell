@@ -9,6 +9,7 @@ mcpSettings:
     - "mcp-qdrant"
     - "samwell-mcp-mslearn"
     - "https://learn.microsoft.com"
+    - "mcp-sandbox"
 
 mcpServers:
   filesystem:
@@ -126,6 +127,12 @@ mcpServers:
   mslearn:
     type: streamable-http
     url: https://learn.microsoft.com/api/mcp
+
+  sandbox:
+    type: sse
+    url: "http://mcp-sandbox:8000/sse"
+    timeout: 120000
+    initTimeout: 30000
 
 # swap default models order for more powerful machines
 endpoints:

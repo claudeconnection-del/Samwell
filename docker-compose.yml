@@ -18,6 +18,8 @@ services:
         condition: service_healthy
       mcp-postgres:
         condition: service_healthy
+      mcp-sandbox:
+        condition: service_healthy
     extra_hosts:
       - "host.docker.internal:host-gateway"
     environment:
@@ -175,13 +177,19 @@ services:
 
   mcp-sandbox:
     build:
-      context: ./config/mcp/sandbox
+      context: ./config/mcp/samwell-mcp-sandbox
     container_name: samwell-mcp-sandbox
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     ports:
       - "8004:8000"
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "python3", "-c", "import socket; s=socket.socket(); s.settimeout(2); s.connect(('localhost', 8000)); s.close()"]
+      interval: 15s
+      timeout: 5s
+      retries: 10
+      start_period: 30s
 
 networks:
   default:
